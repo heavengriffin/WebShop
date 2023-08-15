@@ -1,0 +1,16 @@
+table {
+        border: 2px black solid;
+        text-align: center;
+    }
+.name {
+    border: 2px darkorchid solid;
+}
+.category {
+    border: 2px darkcyan solid;
+}
+.price {
+    border: 2px crimson solid;
+}
+.gold {
+    border: 2px gold solid;
+}
