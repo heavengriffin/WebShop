@@ -22,9 +22,7 @@
     </tr>
 
     <%@ page import="models.Product" %>
-    <%@ page import="placeholders.Placeholder" %>
     <%! Product product = new Product(); %>
-    <%! Placeholder placeholder = new Placeholder(); %>
     <% java.util.List<Product> products = Product.getAll(); %>
     <% for(Product p : products) { %>
 

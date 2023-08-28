@@ -49,7 +49,7 @@ public class Sale {
 
     public void insert() throws ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO sales (product_id, buyer_id, quantity) VALUES (?, ?, ?)");
             preparedStatement.setInt(1, productId);
             preparedStatement.setInt(2, buyerId);
@@ -63,7 +63,7 @@ public class Sale {
     public static List<Sale> getAll() throws ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         List<Sale> sales = new ArrayList<>();
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM sales");
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -82,7 +82,7 @@ public class Sale {
 
     public void deleteByProduct() throws ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM sales WHERE product_id = ?");
             preparedStatement.setInt(1, productId);
             preparedStatement.execute();
@@ -93,7 +93,7 @@ public class Sale {
 
     public void deleteByBuyer() throws ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM sales WHERE buyer_id = ?");
             preparedStatement.setInt(1, buyerId);
             preparedStatement.execute();

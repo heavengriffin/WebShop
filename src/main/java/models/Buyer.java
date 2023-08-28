@@ -153,7 +153,7 @@ public class Buyer {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
 
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM buyers");
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -181,7 +181,7 @@ public class Buyer {
         int currentId = 0;
         int oldQuantity = 0;
         Class.forName("com.mysql.cj.jdbc.Driver");
-            try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+            try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
                 buyers = Buyer.getAllBuyers();
                 for (Buyer b : buyers) {
                     if (currentBuyer.equals(b.getUsername())) {
@@ -203,7 +203,7 @@ public class Buyer {
     public int insertBuyer() throws ClassNotFoundException {
         int inserted = 0;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO buyers(name, surname, address, telephone_number, username, password) VALUES (?, ?, ?, ?, ?, ?)");
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, surname);
@@ -221,7 +221,7 @@ public class Buyer {
     public int updateBuyerByAdmin() throws ClassNotFoundException {
         int updated = 0;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE buyers SET name = ?, surname = ?, address = ?, telephone_number = ?, username = ?, password = ?, number_of_products_bought = ? WHERE buyer_id = ?");
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, surname);
@@ -241,7 +241,7 @@ public class Buyer {
     public int delete() throws ClassNotFoundException, SQLIntegrityConstraintViolationException {
         int deleted = 0;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM buyers WHERE buyer_id = " + buyerId);
             deleted = preparedStatement.executeUpdate();
         } catch (SQLException exc) {

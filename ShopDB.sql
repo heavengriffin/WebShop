@@ -61,7 +61,7 @@ CREATE TABLE `buyers` (
   `password` varchar(45) NOT NULL,
   `number_of_products_bought` int DEFAULT '0',
   PRIMARY KEY (`buyer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +70,7 @@ CREATE TABLE `buyers` (
 
 LOCK TABLES `buyers` WRITE;
 /*!40000 ALTER TABLE `buyers` DISABLE KEYS */;
-INSERT INTO `buyers` VALUES (9,'Andrew','Kitchens','1393 Fowler Avenue, Lawrenceville, GA 30245','770-237-4119','AndrewK@gmail.com','Kitchens123',0),(10,'Maureen','Mims','889 Long Street, Gainesville, FL 32601','352-225-3279','MaureenM@gmail.com','Mims123',0),(11,'Ashton','Neeley','4712 Oral Lake Road, Wayzata, MN 55391','952-473-6531','AshtonN@gmail.com','Neeley123',0),(12,'Samantha','Glaze','4611 Harley Brook Lane, State College, PA 16803','814-620-7119','SamanthaG@gmail.com','Glaze123',0),(13,'Ruby','Bush','883 Maxwell Street, Hartford, CT 06103','860-751-4448','RubyB@gmail.com','Bush123',0),(14,'Ester','Tinsley','2533 Bates Brothers Road, Westerville, OH 43081','614-249-5506','EsterT@gmail.com','Tinsley123',0),(15,'Robert','Farmer','1490 Kembery Drive,Wheaton, IL 60187','630-588-9864','RobertF@gmail.com','Farmer123',0),(16,'Stanley','Bertsch','4056 Davis Court,Carbondale, IL 62901','618-952-7695','StanleyB@gmail.com','Bertsch123',0),(17,'Mary','Jones','3615 Shadowmar Drive, New Orleans, LA 70087','504-909-0903','MaryJ@gmail.com','Jones123',0),(18,'Kyle','Williams','4892 Norma Avenue, Dayton, OH 45402','937-227-4438','KyleW@gmail.com','Williams123',0),(22,'Philip','Doss','4020 Palmer Road, Westerville, OH 43081','614-722-8161','PhilipD@gmail.com','Doss123',0);
+INSERT INTO `buyers` VALUES (9,'Andrew','Kitchens','1393 Fowler Avenue, Lawrenceville, GA 30245','770-237-4119','AndrewK@gmail.com','Kitchens123',0),(10,'Maureen','Mims','889 Long Street, Gainesville, FL 32601','352-225-3279','MaureenM@gmail.com','Mims123',16),(11,'Ashton','Neeley','4712 Oral Lake Road, Wayzata, MN 55391','952-473-6531','AshtonN@gmail.com','Neeley123',0),(12,'Samantha','Glaze','4611 Harley Brook Lane, State College, PA 16803','814-620-7119','SamanthaG@gmail.com','Glaze123',0),(13,'Ruby','Bush','883 Maxwell Street, Hartford, CT 06103','860-751-4448','RubyB@gmail.com','Bush123',0),(14,'Ester','Tinsley','2533 Bates Brothers Road, Westerville, OH 43081','614-249-5506','EsterT@gmail.com','Tinsley123',0),(15,'Robert','Farmer','1490 Kembery Drive,Wheaton, IL 60187','630-588-9864','RobertF@gmail.com','Farmer123',0),(16,'Stanley','Bertsch','4056 Davis Court,Carbondale, IL 62901','618-952-7695','StanleyB@gmail.com','Bertsch123',0),(17,'Mary','Jones','3615 Shadowmar Drive, New Orleans, LA 70087','504-909-0903','MaryJ@gmail.com','Jones123',0),(18,'Kyle','Williams','4892 Norma Avenue, Dayton, OH 45402','937-227-4438','KyleW@gmail.com','Williams123',0),(22,'Philip','Doss','4020 Palmer Road, Westerville, OH 43081','614-722-8161','PhilipD@gmail.com','Doss123',0);
 /*!40000 ALTER TABLE `buyers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +89,7 @@ CREATE TABLE `products` (
   `unit_price` int NOT NULL,
   `items_sold` int DEFAULT '0',
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'adidas Terrex sneakers','sneakers',6,240,0),(2,'nike Air sneakers','sneakers',6,230,0),(3,'Sketchers sneakers','sneakers',6,210,0),(4,'Levi\'s trousers','trousers',5,160,0),(5,'Tommy Hilfiger trousers','trousers',6,170,0),(6,'Legend trousers','trousers',6,130,0),(7,'Levi\'s T-shirt','T-shirt',5,100,0),(8,'Tommy Hilfiger T-shirt','T-shirt',6,90,0),(9,'Legend T-shirt','T-shirt',5,80,0),(10,'Levi\'s jacket','jacket',6,190,0),(11,'Tommy Hilfiger jacket','jacket',5,180,0),(12,'Legend jacket','jacket',4,170,0),(13,'Armani jeans','jeans',8,200,0),(14,'Armani jacket','jacket',8,210,0),(19,'Gucci T-shirt','T-shirt',8,100,1),(21,'Gucci trousers','trousers',9,180,0),(23,'Gucci jacket','jacket',9,210,0),(32,'test','test',10,100,0);
+INSERT INTO `products` VALUES (1,'adidas Terrex sneakers','sneakers',6,240,0),(2,'nike Air sneakers','sneakers',1,230,2),(3,'Sketchers sneakers','sneakers',6,210,0),(4,'Levi\'s trousers','trousers',5,160,0),(5,'Tommy Hilfiger trousers','trousers',4,170,3),(6,'Legend trousers','trousers',6,130,0),(7,'Levi\'s T-shirt','T-shirt',5,100,0),(8,'Tommy Hilfiger T-shirt','T-shirt',6,90,0),(9,'Legend T-shirt','T-shirt',5,80,0),(10,'Levi\'s jacket','jacket',6,190,0),(11,'Tommy Hilfiger jacket','jacket',5,180,0),(12,'Legend jacket','jacket',4,170,0),(13,'Armani jeans','jeans',6,200,1),(14,'Armani jacket','jacket',4,210,1),(19,'Gucci T-shirt','T-shirt',4,100,1),(21,'Gucci trousers','trousers',4,180,1),(23,'Gucci jacket','jacket',5,210,1),(32,'Gucci bag','bag',5,200,1);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,7 +119,7 @@ CREATE TABLE `sales` (
   KEY `buyer_id_fk_idx` (`buyer_id`),
   CONSTRAINT `buyer_id_fk` FOREIGN KEY (`buyer_id`) REFERENCES `buyers` (`buyer_id`),
   CONSTRAINT `product_id_fk` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,6 +128,7 @@ CREATE TABLE `sales` (
 
 LOCK TABLES `sales` WRITE;
 /*!40000 ALTER TABLE `sales` DISABLE KEYS */;
+INSERT INTO `sales` VALUES (5,32,10,2),(6,2,10,5),(7,5,10,2),(8,32,10,2),(9,23,10,2),(10,21,10,1),(11,32,10,3),(12,23,10,2),(13,13,10,2);
 /*!40000 ALTER TABLE `sales` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -140,4 +141,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-02 16:01:24
+-- Dump completed on 2023-08-25 22:02:29

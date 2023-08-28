@@ -67,7 +67,7 @@ public class Admin {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
 
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
 
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT username, password FROM admins");
             ResultSet resultSet = preparedStatement.executeQuery();

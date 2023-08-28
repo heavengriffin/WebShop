@@ -41,7 +41,7 @@ public class ProductServlet extends HttpServlet {
 
         for (Product p : products) {
 
-            if (request.getParameter("bought") != null && request.getParameter("bought").equals(p.getName())) {
+            if (request.getParameter("bought") != null && request.getParameter("bought").equals(p.getName()) && !quantity.equals("")) {
 
                 product.setId(p.getProductId());
 
@@ -92,8 +92,16 @@ public class ProductServlet extends HttpServlet {
                 }
             }
         }
-
+        if (quantity.equals("")) {
+            out.println("<html><body>");
+            out.println("<h2>You have not entered the quantity.</h2>");
+            out.println("<a href='sales.htm'>Back to main page</a>");
+            out.println("<br>");
+            out.println("<a href='login.htm'>Log out</a>");
+            out.println("</body></html>");
+        }
     }
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

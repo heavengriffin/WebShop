@@ -103,7 +103,7 @@ public class Product {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
 
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
 
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM products");
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -135,7 +135,7 @@ public class Product {
         }
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE products SET quantity_in_stock = ? WHERE product_id = ?");
             preparedStatement.setInt(1, left);
             preparedStatement.setInt(2, id);
@@ -148,7 +148,7 @@ public class Product {
     public int updateProduct() throws ClassNotFoundException {
         int updated = 0;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE products SET name = ?, category = ?, quantity_in_stock = ?, unit_price = ? WHERE product_id = ?");
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, category);
@@ -165,7 +165,7 @@ public class Product {
     public int insertProduct() throws ClassNotFoundException {
         int inserted = 0;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
             if (name != null && !name.isEmpty() && category != null && !category.isEmpty()) {
                 PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO products (name, category, quantity_in_stock, unit_price) VALUES (?, ?, ?, ?)");
                 preparedStatement.setString(1, name);
@@ -183,7 +183,7 @@ public class Product {
     public int delete() throws ClassNotFoundException, SQLIntegrityConstraintViolationException {
         int deleted = 0;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM products WHERE product_id = " + productId);
             deleted = preparedStatement.executeUpdate();
         } catch (SQLException exc) {
@@ -194,7 +194,7 @@ public class Product {
 
     public void updateItemSold() throws ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "Developer'sAngles9")) {
+        try(Connection connection = DriverManager.getConnection(Dao.URL, Dao.USERNAME, Dao.PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE products SET items_sold = ? WHERE product_id = ?");
             preparedStatement.setInt(1, itemsSold);
             preparedStatement.setInt(2, id);

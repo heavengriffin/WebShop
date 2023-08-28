@@ -14,6 +14,7 @@
             <th>sale id</th>
             <th>product id</th>
             <th>buyer id</th>
+            <th>quantity</th>
         </tr>
 
         <%@ page import="models.Sale" %>
@@ -26,6 +27,7 @@
             <td><%= s.getSaleId() %></td>
             <td><%= s.getProductId() %></td>
             <td><%= s.getBuyerId() %></td>
+            <td><%= s.getQuantity() %></td>
         </tr>
 
         <% } %>
